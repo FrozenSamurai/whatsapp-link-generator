@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Generated = ({ link, setLink, setMobile, setMessage, setError }) => {
+  const [copy, setCopy] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setCopy(false);
+    }, 3000);
+  }, [copy]);
   return (
-    <div className="flex flex-col justify-center items-center mt-2">
+    <div className="flex flex-col justify-center items-center mt-2 relative">
       <h1 className="text-2xl font-bold">Generated Link</h1>
       <p className="text-sm text-gray-500">
         Copy the link and share it with your friends.
@@ -18,6 +24,7 @@ const Generated = ({ link, setLink, setMobile, setMessage, setError }) => {
           className="bg-green-600 text-white rounded-r-md p-2 px-5 hover:bg-green-700"
           onClick={() => {
             navigator.clipboard.writeText(link);
+            setCopy(true);
           }}
         >
           Copy
@@ -36,6 +43,11 @@ const Generated = ({ link, setLink, setMobile, setMessage, setError }) => {
           Reset
         </button>
       </div>
+      {copy ? (
+        <p className="text-green-600 absolute bottom-8 bg-slate-200 rounded-xl px-2">
+          Copied to clipboard
+        </p>
+      ) : null}
     </div>
   );
 };
