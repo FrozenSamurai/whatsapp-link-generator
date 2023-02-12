@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "react-phone-number-input/style.css";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
