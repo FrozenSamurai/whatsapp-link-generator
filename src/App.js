@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div
-      className={`flex h-screen bg-white justify-center items-center flex-col md:flex-row font-sora 
+      className={`flex h-screen bg-white justify-center md:space-x-16 items-center flex-col md:flex-row font-sora 
           ${link !== "" ? `md:mb-0 mb-10` : `mb-0`}`}
     >
       <div className="flex justify-center items-center">
